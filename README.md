@@ -45,7 +45,11 @@ Simple aplicación para gestionar usuarios, roles y permisos.
 
 #### Ir a ./app/setting.php y configurar parametros de BBDD
 
-#### Ejecutar aplicación:
+
+##### Ejecutar aplicación:
+------------
+
+
     $ php -S localhost:8000 -t ./public
 
 
