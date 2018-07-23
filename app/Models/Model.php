@@ -1,4 +1,8 @@
 <?php
+/**
+ *  MODELO DE DATOS
+ *
+ */
 namespace App\Models;
 Abstract  class Model{
 

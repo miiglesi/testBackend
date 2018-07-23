@@ -1,0 +1,15 @@
+{% if error %}<br>
+    <div class="alert alert-danger" role="alert">
+        {{error.msg}}
+    </div><br>
+{% endif %}
+{% if crud.error %}<br>
+    <div class="alert alert-danger" role="alert">
+        {{crud.error.msg|raw}}
+    </div><br>
+{% endif %}
+{% if crud.success %}<br>
+    <div class="alert alert-success" role="alert">
+        {{crud.success.msg|raw}}
+    </div><br>
+{% endif %}

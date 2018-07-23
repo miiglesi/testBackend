@@ -1,17 +1,23 @@
 <?php
+/**
+ *  Archivo de configuración
+ *
+ */
 return [
     'settings' => [
         'displayErrorDetails' => true,
+        /* SLIM - TWIG */
         'view' => [
             'path' => __DIR__ . '/Views',
+            'debug' => true,
             'twig' => [
                 'cache' => false,
             ],
         ],
-        // DATOS SITIO
+        // DATOS SITIO, TITULO, DESCRIPCION...
         'page' => [
             'title' => 'Test Backend',
-            'description' => 'Prueba backend para hola.com.',
+            'description' => 'Prueba técnica para backends (PHP)',
         ],
         // Conexión de BBDD
         "db" => [
@@ -21,14 +27,14 @@ return [
             "pass" => "root",
             "port" => "8889",
         ],
-        // Tipos de roles
+        // Tipos de roles del sistema
         "roles" => [
             1 => "ADMIN",
             2 => "PAGE_1",
             3 => "PAGE_2",
             4 => "PAGE_3",
         ],
-        // ACTIVO PAGINAS - PERMISOS - RUTAS
+        //  PAGINAS - PERMISOS - RUTAS
         "pagesRoles" => [
             "home" => [
                 "path" => "/",

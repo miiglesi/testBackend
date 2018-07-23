@@ -4,12 +4,12 @@
  *
  */
 
-// Cargar composer autoloader
+// Cargar dependencias de composer 
 require __DIR__ . '/../vendor/autoload.php';
-
 
 // Inicio Session
 session_start();
+
 // CERRAR SESION DESPUES DE 5 MINUTOS
 $expire = 5; // MINUTOS PARA CERRR
 //Checkear session de control
@@ -28,15 +28,15 @@ if (isset($_SESSION['last_action'])) {
 $_SESSION['last_action'] = time();
 
 
-// Configuración
+// Configuración de la app
 $settings = require __DIR__ . '/../app/settings.php';
 
 
-// Instanciar Slim
+// Framework Slim
 $app = new \Slim\App($settings);
 
 
-// Dependencias
+// Dependencias del framework
 require __DIR__ . '/../app/dependencies.php';
 
 

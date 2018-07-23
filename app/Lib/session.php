@@ -1,4 +1,8 @@
 <?php
+/**
+ *  GESTIIÓN DE SESSIONES
+ *
+ */
 namespace App\Lib;
 class Session
 {

@@ -1,0 +1,98 @@
+{# VISTA SI LECTURA #}
+{% if (crud.tipo == "read" or crud.tipo == "delete") 
+    and auth.username %}
+    <br>
+    <h3>- Tus datos:</h3><br>
+    <div class="form-group">
+        <label for="email">Usuario:</label>
+        {{auth.username}}
+    </div>
+    <div class="form-group">
+        <label for="pwd">Roles:</label>
+        {% set lista = auth.roles | split(',') %}
+        {% for key, rol in crud.rolesform %}
+            {% if key in lista %}
+                {{rol}}<br>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {# SI TIENE ROL DE ADMINISTRADOR SE PERMITE AÑADIR Y EDITAR OTROS USUARIOS #}
+    {% if permissions.isAdmin %}
+        <a href="/admin/edit/{{auth.username}}">
+            <button type="button" class="btn btn-primary">Editar</button>
+        </a>
+        <br><br>
+        <h3>- Lista de Usuarios:</h3><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Roles</th>
+                    <th scope="col">#</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in crud.allUsers %}
+                    <tr>
+                        <th scope="row">{{list.iduser}}</th>
+                        <td>{{list.username}}</td>
+                        <td>
+                            {% set lista = list.roles | split(',') %}
+                            {% for key, rol in crud.rolesform %}
+                                {% if key in lista %}
+                                    {{rol}}<br>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="/admin/edit/{{list.username}}">Editar</a>
+                        </td>
+                        <td>
+                            <a href="/admin/delete/{{list.username}}">Borrar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/admin/add">
+            <button type="button" class="btn btn-primary">Insertar Usuario</button>
+        </a>
+    {% endif %}
+{% endif %}
+{# FORMUALARIO PARA INSERT Y UPDATE #}
+{% if (crud.tipo == "edit" and crud.user) 
+    or crud.tipo == "add" %}
+    <a href="/admin">
+        <button type="button" class="btn btn-primary">Volver</button>
+    </a><br>
+    <h3>Actualizar Datos:</h3><br>
+    <form action="" method="post" autocomplete="new-password">
+        <div class="form-group">
+            <label for="email">Usuario:</label>
+            <input type="text" name="username" id="username" value="{% if crud.tipo == "edit" %}{{crud.user.username}}{% else %}{{ POST.username}}{% endif %}" placeholder="Usuario (requerido)" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:{% if crud.tipo == "edit" %}
+                    (Vacío se mantiene anterior){% endif %}
+            </label>
+            <input type="password" name="password" id="password" placeholder="Password (requerido)" class="form-control" autocomplete="new-password">
+        </div>
+        <div class="form-group">
+            <label for="roles">Roles: Puede seleccionar varios roles</label>
+            <select name="roles[]" class="form-control" multiple="multiple" style="width:300px">
+                {% if crud.tipo == "edit" %}
+                    {% set permisosuser = crud.user.roles | split(',') %}
+                {% endif %}
+                {% for key, rol in crud.rolesform %}
+                    <option value="{{key}}" {% if key in permisosuser and crud.tipo == "edit" %} selected="selected" {% endif %}>{{ rol }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% set send = (crud.user.iduser) ? crud.user.iduser : 0 %}
+        {% set tag = (crud.user.iduser) ? "Editar" : "Insertar" %}
+        <input type="hidden" name="send" value="{{send}}">
+        <button type="submit" class="btn btn-primary">{{ tag }}</button>
+    </form>
+{% endif %}

@@ -1,0 +1,17 @@
+{% extends 'partials/layout.twig' %}
+{% block content %}
+    <h3>Estas en: {{ page.active.name }}</h3><br><br>
+ 
+    {% if permissions.check %}
+        <h2>Hola
+            {{ auth.username }}
+        </h2>
+    {% endif %} 
+    {% include 'partials/error.twig' %} 
+    {% if permissions.check %}
+   
+        {% if crud %}
+            {% include 'partials/admin.twig' %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
