@@ -6,7 +6,7 @@ Prueba técnica para backends (PHP)
 Simple aplicación para gestionar usuarios, roles y permisos.
 
 
-##### Prerequisitos
+##### Pre-requisitos
 ------------------
 
 
@@ -32,11 +32,10 @@ Simple aplicación para gestionar usuarios, roles y permisos.
 	- Versión `2.4.0"`
 
 
-
 ##### Instalación
 ------------
 
-#### Clonar / Desargar del repositorio
+#### Clonar / Descargar del repositorio
 	$ git clone https://github.com/miiglesi/testBackend.git
 
 #### Instala dependencias de  `Composer`
