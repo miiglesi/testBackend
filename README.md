@@ -42,10 +42,10 @@ Simple aplicación para gestionar usuarios, roles y permisos.
 ##### Clonar / Descargar del repositorio
 	$ git clone https://github.com/miiglesi/testBackend.git
 
-##### Instala dependencias de  `Composer`
+##### Instalar las dependencias de  `Composer`
 	$ composer install 
 
-##### Instala la base de datos con el fichero ./app/testbackend.sql
+##### Instalar la base de datos con el fichero ./app/testbackend.sql
 
 ##### Ir a ./app/setting.php y configurar parametros de BBDD
 
@@ -60,7 +60,7 @@ Simple aplicación para gestionar usuarios, roles y permisos.
 
 
 
-### Usuarios
+### BBDD Usuarios
 ------------
 
 | USUARIO | PASSWORD | ROLES |
