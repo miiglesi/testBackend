@@ -6,7 +6,7 @@ Prueba técnica para backends (PHP)
 Simple aplicación para gestionar usuarios, roles y permisos.
 
 
-##### Pre-requisitos
+### Pre-requisitos
 ------------------
 
 
@@ -22,8 +22,10 @@ Simple aplicación para gestionar usuarios, roles y permisos.
 	- Version `1.2.1+` recommended
 
 
-##### Componentes de Composer
+### Componentes de Composer
 ------------------
+
+
 - `slim/slim`
 	- Versión `3.10.0`
 
@@ -32,21 +34,25 @@ Simple aplicación para gestionar usuarios, roles y permisos.
 	- Versión `2.4.0"`
 
 
-##### Instalación
+
+
+### Instalación
 ------------
 
-#### Clonar / Descargar del repositorio
+##### Clonar / Descargar del repositorio
 	$ git clone https://github.com/miiglesi/testBackend.git
 
-#### Instala dependencias de  `Composer`
+##### Instala dependencias de  `Composer`
 	$ composer install 
 
-#### Instala la base de datos con el fichero ./app/testbackend.sql
+##### Instala la base de datos con el fichero ./app/testbackend.sql
 
-#### Ir a ./app/setting.php y configurar parametros de BBDD
+##### Ir a ./app/setting.php y configurar parametros de BBDD
 
 
-##### Ejecutar aplicación:
+
+
+### Ejecutar aplicación:
 ------------
 
 
@@ -54,7 +60,7 @@ Simple aplicación para gestionar usuarios, roles y permisos.
 
 
 
-##### Usuarios
+### Usuarios
 ------------
 
 | USUARIO | PASSWORD | ROLES |
